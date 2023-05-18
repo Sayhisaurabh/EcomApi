@@ -6,7 +6,7 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 const userRoute = require('./routes/user')
-// routes
+// routess
  app.use('/api',userRoute)
 
 mongoose.set("strictQuery", false)
