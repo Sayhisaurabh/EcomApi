@@ -6,8 +6,10 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 const userRoute = require('./routes/user')
+const productCategoryRoutes = require('./routes/productCategory')
 // routes
  app.use('/api',userRoute)
+ app.use('/api',productCategoryRoutes)
 
 mongoose.set("strictQuery", false)
 mongoose.connect(process.env.MONGOOES_URL)
