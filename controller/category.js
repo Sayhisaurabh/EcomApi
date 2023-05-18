@@ -1,4 +1,4 @@
-const Category = require('../model/productCategory')
+const Category = require('../model/category')
 const addCategory = async(req,res)=>{
     try {
         const {name} = req.body
