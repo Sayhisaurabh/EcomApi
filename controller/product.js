@@ -66,7 +66,7 @@ const deleteSingleProduct = async(req,res)=>{
         }
        
     } catch (error) {
-        res.status(500).json(error) 
+        res.status(500).json(error.message) 
     }
 }
 module.exports ={addProduct,getProduct,getSingleProduct,updateSingleProduct,deleteSingleProduct}
