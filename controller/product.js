@@ -3,17 +3,20 @@ const Product = require('../model/product')
 // Add Product 
 const addProduct = async(req,res)=>{
     try {
-        const name = req.body.name
+        const {name,cat_id,desc,price} = req.body
+        
         const isAlready = await Product.findOne({name:name})
         if(isAlready){
             res.status(200).json({message:"Product Name is Already Filled"})
         }else{
-            const add = await Product.create(req.body)
+            const add = await Product.create({
+           name,cat_id,desc,price,image:req.file.path
+            })
             res.status(200).json({data:add,message:"Product Added Successfully"})
         }
        
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json(error.message)
     }
 }
 
