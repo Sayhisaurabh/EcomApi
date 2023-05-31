@@ -8,7 +8,12 @@ const productCategoryModel =  mongoose.Schema({
     image: {
         type: String,
         default:null
-    }
+    },
+    post_id: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Product',
+        required:true,
+    }],
 
 },{
     timestamps: true

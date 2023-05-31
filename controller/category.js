@@ -20,7 +20,7 @@ const addCategory = async(req,res)=>{
 //Fetch All category
 const fetchCategory = async(req,res)=>{
 try {
-    const allCategory = await Category.find({})
+    const allCategory = await Category.find({}).populate('post_id','name')
     res.status(200).json({data:allCategory})
 } catch (error) {
     res.status(500).json(error)
